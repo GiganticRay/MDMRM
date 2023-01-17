@@ -1,0 +1,99 @@
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos1.mtx 5 1000 0
+
+0	MR,
+1	ROWADJUSTMR,
+2	COLADJUSTDIAGMR,
+3	COLADJUSTDIAGMR_OPT,
+4	CGN,
+5	BI_CGN,
+6	PARALLEL_SPIKE
+7	COLADJUSTDIAGMR_OPT1
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos1.mtx 5 1000 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos1_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos1.mtx 5 1000 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos1_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos1.mtx 5 1000 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos1_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos1.mtx 5 1000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos1_MDMRB
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos4.mtx 14 100 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos4_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos4.mtx 14 100 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos4_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos4.mtx 14 100 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos4_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos4.mtx 14 100 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos4_MDMRB
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos6.mtx 31 1000 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos6_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos6.mtx 31 1000 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos6_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos6.mtx 31 1000 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos6_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/nos6.mtx 31 1000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/nos6_MDMRB
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk05.mtx 29 1000 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk05_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk05.mtx 29 1000 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk05_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk05.mtx 29 1000 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk05_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk05.mtx 29 1000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk05_MDMRB
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk10.mtx 38 1000 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk10_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk10.mtx 38 1000 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk10_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk10.mtx 38 1000 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk10_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/bcsstk10.mtx 38 1000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/bcsstk10_MDMRB
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_1.mtx 5 10000 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random1_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_1.mtx 5 10000 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random1_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_1.mtx 5 10000 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random1_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_1.mtx 5 10000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random1_MDMRB
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_2.mtx 5 10000 1 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random2_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_2.mtx 5 10000 4 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random2_CGN
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_2.mtx 5 10000 5 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random2_BICG
+./main /public/home/LeiChao/Document/MRForMDiag/data/self_generated_5_2000_2.mtx 5 10000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/random2_MDMRB
+
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/testdata.mtx 6 1000 7 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_6_2000_10000_MMRB
+./main /public/home/LeiChao/Document/MRForMDiag/data/testdata.mtx 6 1000 0 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_6_2000_10000_MR
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/testdata.mtx 5 100 10
+
+# parallel MDMRB 700 步可收敛，所以设置 MRSM 迭代 4000 步
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_800t_5.mtx 5 1000 9 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_800t_5_PARALLEL_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_800t_5.mtx 5 1000 11 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_800t_5_PARALLEL_MDMRB
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_800t_5.mtx 5 1000 14 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_800t_5_PARALLEL_CG
+
+
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_8m_5.mtx 5 500 9 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_8m_5_PARALLEL_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_8m_5.mtx 5 500 11 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_8m_5_PARALLEL_MDMRB
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_8m_5.mtx 5 500 14 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_8m_5_PARALLEL_CG
+
+
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_80m_5.mtx 5 100 11 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_80m_5_PARALLEL_MDMRB
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_80m_5.mtx 5 100 9 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_80m_5_PARALLEL_MRSM
+./main /public/home/LeiChao/Document/MRForMDiag/data/helmholtz_80m_5.mtx 5 100 14 > /public/home/LeiChao/Document/MRForMDiag/EX_OUTPUT/helmholtz_80m_5_PARALLEL_CG
+
+
+# helmholtz 实验设计
+# 80 m : 		alpha [1, 50]
+# 8  m:			alpha [1, 500]
+# 800 t:		alpha [1, 5000]
+
+# 串型 CPU 实验
+# no.	name	
+# 1. bcsstk05	30	153
+# 2. bcsstk10
+# 3. nos6
+# 4. random4
+# 5. random5
+
+EIGEN Helmholtz EX	order 10e6
+L	U		MRSM			CG			MDMRB	(all 100 step)
+20	2000	7.07185e+11		1.21898e+10	8.112e-14	
+40	2000	7.1084e+11		3.61299e+09	4.71458e-18
+60	2000	7.11745e+11		3.51488e+08	1.39956e-20
+80	2000	6.91199e+11		1.9875e+07	1.21455e-26
+100	2000	6.17191e+11		860664		2.73858e-24
+120	2000	5.43063e+11		32392		2.82657e-31
+140	2000	4.33549e+11		1022.44		5.36059e-33
+160	2000	3.16918e+11		29.7832		6.78763e-35
+180	2000	2.09603e+11		0.81029		3.69537e-38
+200	2000	1.29534e+11		0.0212498	2.85319e-40
+
+1.074929e+10	1.2421e+19
+2.254416e+09	1.65432e+23
+1.329150e+08	14242.5
+1.921360e+07	3.83791e-05

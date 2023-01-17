@@ -1,0 +1,33 @@
+CC		= gcc
+CPLUSCC = g++
+
+# set compile flag
+MMIOFlag= -static
+
+SpikePath 	= /public/home/LeiChao/Document/spike/spike-1.0/spike-1.0
+MKLPath		= /public/home/LeiChao/intel/oneapi/mkl/latest
+
+IncPath	= 	-I /public/home/LeiChao/Document/MRForMDiag/include \
+			-I ${SpikePath}/include	\
+			-I ${MKLPath}/include
+
+MMIOPath = /public/home/LeiChao/Document/MRForMDiag/include
+
+#set library path
+LibPath	=	-L /public/home/LeiChao/Document/MRForMDiag/SpikeExperiment \
+			-L /public/home/LeiChao/Document/spike/spike-1.0/spike-1.0/lib/x64
+
+Lib	 	= 	-l MMIO \
+			-l spike
+
+CFLAG	= -lspike -Wl,--no-as-needed -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lm -ldl -m64 -lgfortran
+
+# compiling task
+main: main.c libMMIO.a
+	${CC} ${IncPath} main.c ${LibPath} ${Lib} ${CFLAG} -o main -g 
+
+libMMIO.a: ${MMIOPath}/mmio.c
+	${CC} ${MMIOFlag} -c ${MMIOPath}/mmio.c -o libMMIO.a
+
+clean:
+	rm *.a main
