@@ -11,11 +11,11 @@ enum METHOD{
 	CGN				= 4,
 	BI_CG			= 5,
 	PARALLEL_SPIKE	= 6,
-	MDMRB			= 7,
+	MDMRM			= 7,
 	JACOBI			= 8,
 	PARALLEL_MR		= 9,
-	PARALLEL_MDMRB	= 10,
-	PARALLEL_MDMRB_WITHOUT_EIGEN = 11,
+	PARALLEL_MDMRM	= 10,
+	PARALLEL_MDMRM_WITHOUT_EIGEN = 11,
 	PARALLEL_CGN	= 12,
 	PARALLEL_BICG	= 13,
 	PARALLEL_CG		= 14
@@ -92,15 +92,15 @@ public:
 
 	Eigen::VectorXd Parallel_Spike(int recursive_level);
 
-	void MDMRB();
+	void MDMRM();
 
 	void JACOBI();
 
 	void PARALLEL_MR();
 
-	void PARALLEL_MDMRB();
+	void PARALLEL_MDMRM();
 
-	void PARALLEL_MDMRB_WITHOUT_EIGEN();
+	void PARALLEL_MDMRM_WITHOUT_EIGEN();
 
 	void PARALLEL_CGN();
 

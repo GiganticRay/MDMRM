@@ -33,8 +33,8 @@ int main(int argc, char* argv[]){
 	case PARALLEL_SPIKE:
 		ite_solv.Parallel_Spike(1);
 		break;
-	case MDMRB:
-		ite_solv.MDMRB();
+	case MDMRM:
+		ite_solv.MDMRM();
 		break;
 	case JACOBI:
 		ite_solv.JACOBI();
@@ -42,11 +42,11 @@ int main(int argc, char* argv[]){
 	case PARALLEL_MR:
 		ite_solv.PARALLEL_MR();
 		break;
-	case PARALLEL_MDMRB:
-		ite_solv.PARALLEL_MDMRB();
+	case PARALLEL_MDMRM:
+		ite_solv.PARALLEL_MDMRM();
 		break;
-	case PARALLEL_MDMRB_WITHOUT_EIGEN:
-		ite_solv.PARALLEL_MDMRB_WITHOUT_EIGEN(); 
+	case PARALLEL_MDMRM_WITHOUT_EIGEN:
+		ite_solv.PARALLEL_MDMRM_WITHOUT_EIGEN(); 
 		break;
 	case PARALLEL_CGN:
 		ite_solv.PARALLEL_CGN();

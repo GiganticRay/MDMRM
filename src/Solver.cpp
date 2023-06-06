@@ -450,9 +450,9 @@ Eigen::VectorXd IterativeSolver::Parallel_Spike(int recursive_level){
 	return ls.x;
 }
 
-void IterativeSolver::MDMRB(){
+void IterativeSolver::MDMRM(){
 	int elapsed_cnt = 0;
-	std::cout << "MDMRB" << endl;
+	std::cout << "MDMRM" << endl;
 	Eigen::setNbThreads(1);
 
 	Eigen::VectorXd r 		= ls.b - ls.A * ls.x;
@@ -479,6 +479,8 @@ void IterativeSolver::MDMRB(){
 
 		// precondition, compute environment variable
 		// int l = rand() % ls.m + 1; 
+        // The trick to choose l (method 1)
+        // based on our experienment, this trick has few effect than randomly choosen
 		int l = 3;
 		if(ite + 1 <= ls.m)
 			l = ite + 1;
@@ -496,8 +498,11 @@ void IterativeSolver::MDMRB(){
 				accu += possibilities[l++]; 
 			}
 		}
-        // l = 1;
 		int t = (ls.N - l + 1 + ls.m - 1) / ls.m;
+
+        // The trick to choose l (method 2)
+        // randomly choosen 
+		l = rand() % ls.m + 1; 
         	
 		// step 1. compute hi, construct Nx(m-1) matrix h = [h1^T, h2^T, ..., hN^T]
 		start_time = CycleTimer::currentSeconds();
@@ -843,7 +848,7 @@ void IterativeSolver::PARALLEL_MR(){
 	cout << "# iterates cost: " << end_ite_time - start_ite_time << endl;
 }
 
-void IterativeSolver::PARALLEL_MDMRB(){
+void IterativeSolver::PARALLEL_MDMRM(){
 	/*
 	// 测试 move data from array into matrixXd
 	int N = 20;
@@ -853,7 +858,7 @@ void IterativeSolver::PARALLEL_MDMRB(){
 	cout << test << endl;
 	*/
 	int elapsed_cnt = 0;
-	std::cout << "MDMRB" << endl;
+	std::cout << "MDMRM" << endl;
 	Eigen::setNbThreads(1);
 
 	Eigen::VectorXd r 		= ls.b - BM_V_MULT(ls.BM_A, ls.N, ls.d, ls.x);
@@ -958,7 +963,7 @@ void IterativeSolver::PARALLEL_MDMRB(){
 
 }
 
-void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
+void IterativeSolver::PARALLEL_MDMRM_WITHOUT_EIGEN(){
 	int elapsed_cnt = 0;
 	std::cout << "PARALLEL_MDMRM" << endl;
 	Eigen::setNbThreads(1);
