@@ -52,7 +52,7 @@ private:
 	LinearSystem ls;
 	
 public:
-	IterativeSolver(string file_path, int d, int max_step = 1000, double res_THOLD = 1e-20, double res_diff_THOLD = 0);
+	IterativeSolver(string file_path, int d, int max_step = 1000, double res_THOLD = 1e-02, double res_diff_THOLD = 0);
 
 	IterativeSolver(Eigen::MatrixXd A, Eigen::VectorXd b, int d);
 

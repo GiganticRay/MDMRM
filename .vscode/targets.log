@@ -1,0 +1,281 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.82
+# Built for x86_64-redhat-linux-gnu
+# Copyright (C) 2010  Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Thu Aug 18 19:50:21 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# environment
+QTDIR = /usr/lib64/qt-3.3
+# environment
+VSCODE_AGENT_FOLDER = /public/home/LeiChao/.vscode-server
+# environment
+CUDA_11_5_HOME = /public/home/LeiChao/opt/cuda-11.5
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# default
+MAKE_VERSION := 3.82
+# makefile
+CURDIR := /public/home/LeiChao/Document/MRForMDiag
+# makefile
+SHELL = /bin/sh
+# environment
+GUROBI_HOME = /public/home/LeiChao/opt/gurobi912/linux64
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /bin/make
+# makefile
+MAKEFILE_LIST := 
+# environment
+HISTCONTROL = ignoredups
+# environment
+XDG_DATA_DIRS = /public/home/LeiChao/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+# environment
+PERL_MM_OPT = INSTALL_BASE=/public/home/LeiChao/perl5
+# environment
+QT_PLUGIN_PATH = /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+# environment
+LESSOPEN = ||/usr/bin/lesspipe.sh %s
+# environment
+VSCODE_CWD = /public/home/LeiChao
+# environment
+ANACONDA_HOME = /public/home/LeiChao/opt/anaconda3
+# environment
+SSH_CONNECTION = 30.30.30.254 49809 30.30.30.41 22
+# environment
+PATH = /public/home/LeiChao/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/public/home/LeiChao/opt/node-v16.14.2-linux-x64//bin:/public/home/LeiChao/opt/tree-1.8.0/bin:/usr/local/cuda-11.1/bin:/public/home/LeiChao/opt/ispc-trunk-linux/bin:/public/home/LeiChao/opt/gurobi912/linux64/bin:/bin:/public/home/LeiChao/opt/anaconda3/bin:/public/home/LeiChao/opt/cppman/bin:/public/home/LeiChao/opt/node-v16.14.2-linux-x64/bin:/public/home/LeiChao/opt/tree-1.8.0/bin:/usr/local/cuda-11.1/bin:/public/home/LeiChao/opt/ispc-trunk-linux/bin:/public/home/LeiChao/opt/gurobi912/linux64/bin:/bin:/public/home/LeiChao/opt/anaconda3/bin:/public/home/LeiChao/opt/cppman/bin:/public/home/LeiChao/opt/anaconda3/bin:/public/home/LeiChao/opt/anaconda3/condabin:/usr/lib64/qt-3.3/bin:/public/home/LeiChao/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/public/software/anaconda3/bin:/public/opt/cuda/lib64:/public/home/LeiChao/.local/bin:/public/home/LeiChao/bin
+# environment
+CUDA_11_1_HOME = /usr/local/cuda-11.1
+# environment
+QT_GRAPHICSSYSTEM_CHECKED = 1
+# environment
+XDG_RUNTIME_DIR = /run/user/1016
+# environment
+TREE_1_8_0_HOME = /public/home/LeiChao/opt/tree-1.8.0
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver check-symlink
+# automatic
+%F = $(notdir $%)
+# environment
+KDEDIRS = /usr
+# environment
+CONDA_EXE = /public/home/LeiChao/opt/anaconda3/bin/conda
+# environment
+PWD = /public/home/LeiChao/Document/MRForMDiag
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/1016/vscode-ipc-67c39872-abee-4ece-b0ed-2135e7ec0006.sock
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+LD_LIBRARY_PATH = /public/home/LeiChao/opt/gurobi912/linux64/lib
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /public/home/LeiChao
+# environment
+PERL_MB_OPT = --install_base /public/home/LeiChao/perl5
+# environment
+PERL_LOCAL_LIB_ROOT = :/public/home/LeiChao/perl5
+# environment
+PERL5LIB = /public/home/LeiChao/perl5/lib/perl5:
+# environment
+LOGNAME = LeiChao
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# automatic
++F = $(notdir $+)
+# environment
+CPPMAN_HOME = /public/home/LeiChao/opt/cppman
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = 430931
+# environment
+MAKELEVEL := 0
+# environment
+CONDA_DEFAULT_ENV = base
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+GRB_VER = 912
+# environment
+SHLVL = 5
+# environment
+NODE_HOME = /public/home/LeiChao/opt/node-v16.14.2-linux-x64/
+# environment
+XDG_SESSION_ID = 552
+# environment
+USER = LeiChao
+# environment
+QTLIB = /usr/lib64/qt-3.3/lib
+# environment
+ISPC_1_6_1 = /public/home/LeiChao/opt/ispc-trunk-linux/bin
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+CONDA_SHLVL = 1
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /public/home/LeiChao/tmp
+# automatic
+*F = $(notdir $*)
+# environment
+PYTHONPATH = :/storage/jiangc/slowfast/
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# environment
+SSH_CLIENT = 30.30.30.254 49809 22
+# environment
+MAIL = /var/spool/mail/LeiChao
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+BROWSER = /public/home/LeiChao/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/helpers/browser.sh
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+https_proxy = https://127.0.0.1:7890
+# environment
+GRB_LICENSE_FILE = /public/home/LeiChao/opt/gurobi912/gurobi.lic
+# environment
+LC_ALL = C
+# environment
+CONDA_PYTHON_EXE = /public/home/LeiChao/opt/anaconda3/bin/python
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+HISTSIZE = 1000
+# environment
+_CE_M = 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+QTINC = /usr/lib64/qt-3.3/include
+# environment
+HOSTALIASES = /public/home/LeiChao/.hosts
+# default
+.RECIPEPREFIX := 
+# environment
+http_proxy = http://127.0.0.1:7890
+# makefile
+.DEFAULT_GOAL := 
+# environment
+CONDA_PREFIX = /public/home/LeiChao/opt/anaconda3
+# environment
+_CE_CONDA = 
+# environment
+LANG = C
+# variable set hash-table stats:
+# Load=95/1024=9%, Rehash=0, Collisions=10/114=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2065, inode 160170154): 10 files, no impossibilities.
+
+# 10 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+GNUmakefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# files hash-table stats:
+# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 0 / lookups = 21 / hits = 21
+# # of strcache buffers: 1 (* 8176 B/buffer = 8176 B)
+# strcache used: total = 0 (155) / max = 0 / min = 8176 / avg = 0
+# strcache free: total = 0 (8021) / max = 0 / min = 8176 / avg = 0
+
+# strcache hash-table stats:
+# Load=18/8192=0%, Rehash=0, Collisions=1/21=5%
+# Finished Make data base on Thu Aug 18 19:50:21 2022
+
+ 
+make: *** No rule to make target `all'.  Stop.
+

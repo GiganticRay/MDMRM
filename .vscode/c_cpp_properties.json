@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/public/home/LeiChao/src/BLAS/eigen-3.4.0",
+                "/public/home/LeiChao/intel/oneapi/mkl/latest/include/",
+                "/public/home/LeiChao/Document/spike/spike-1.0/spike-1.0/include",
+                "/usr/local/cuda-11.1/include/"
+            ],
+            "defines": [],
+            "compilerPath": "/bin/gcc",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

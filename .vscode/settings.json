@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "limits": "cpp",
+        "chrono": "cpp",
+        "dense": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "complex": "cpp",
+        "functional": "cpp"
+    }
+}

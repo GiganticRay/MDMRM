@@ -31,7 +31,7 @@ LinearSystem::LinearSystem(const Eigen::MatrixXd A, const Eigen::VectorXd b, int
 	this->SetBM_AFromEigen(this->BM_A, this->A, this->d, this->N);
 }
 
-LinearSystem::LinearSystem(string file_path, int d, int max_step /*= 1000*/, double res_THOLD /*= 1e-20*/, double res_diff_THOLD /*= 0*/){
+LinearSystem::LinearSystem(string file_path, int d, int max_step /*= 1000*/, double res_THOLD /*= 1e-02*/, double res_diff_THOLD /*= 0*/){
 	this->max_step = max_step;
 	this->res_THOLD = res_THOLD;
 	this->res_diff_THOLD = res_diff_THOLD;
@@ -50,6 +50,7 @@ LinearSystem::LinearSystem(string file_path, int d, int max_step /*= 1000*/, dou
 	x.setOnes();
 
 	// initialize random B
+	/*
 	cout << "# Initialize b..." << endl;
 	double* b_val_p = (double*) malloc (sizeof(double) * N);
 	tool_Generate_Random_vec(N, b_val_p);
@@ -63,6 +64,8 @@ LinearSystem::LinearSystem(string file_path, int d, int max_step /*= 1000*/, dou
 	// 将 b 设置为 A 相关
 	b = A * Eigen::VectorXd::Constant(N, 0.5);
 	cout << "# Initialize b sucessfully!" << endl;
+	*/
+	b.setOnes();
 	
 	// in case elem in A is large, we simpy normalize them by divide by the largest elem
 	// Normalize(A);
@@ -476,7 +479,7 @@ void IterativeSolver::MDMRB(){
 
 		// precondition, compute environment variable
 		// int l = rand() % ls.m + 1; 
-		int l = 1;
+		int l = 3;
 		if(ite + 1 <= ls.m)
 			l = ite + 1;
 		else{
@@ -493,11 +496,13 @@ void IterativeSolver::MDMRB(){
 				accu += possibilities[l++]; 
 			}
 		}
+        // l = 1;
 		int t = (ls.N - l + 1 + ls.m - 1) / ls.m;
-
+        	
 		// step 1. compute hi, construct Nx(m-1) matrix h = [h1^T, h2^T, ..., hN^T]
 		start_time = CycleTimer::currentSeconds();
 		// vector<Eigen::VectorXd> h(ls.N, Eigen::VectorXd::Zero(ls.m - 1));
+		
 		Eigen::MatrixXd h(ls.N, ls.m - 1);
 		h.setZero();
 		for(int i = 0; i < ls.N; i++){
@@ -829,6 +834,8 @@ void IterativeSolver::PARALLEL_MR(){
 		Scalar(Ar_p, Ar_p, alpha, ls.N);
 		SUB(rp, Ar_p, rp, ls.N);
 		cout << i+1 << "\t" << dot(rp, rp, ls.N)  << endl;
+        if(dot(rp, rp, ls.N) < ls.res_THOLD)
+            break;
 	}
 	free(rp);
 	free(Ar_p);
@@ -953,7 +960,7 @@ void IterativeSolver::PARALLEL_MDMRB(){
 
 void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 	int elapsed_cnt = 0;
-	std::cout << "PARALLEL_MDMRB" << endl;
+	std::cout << "PARALLEL_MDMRM" << endl;
 	Eigen::setNbThreads(1);
 
 	Eigen::VectorXd r 		= ls.b - BM_V_MULT(ls.BM_A, ls.N, ls.d, ls.x);
@@ -1027,7 +1034,8 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 		// 	break;
 
 		// precondition, compute environment variable
-		// int l = rand() % ls.m + 1; 
+        // The trick to choose l (method 1)
+        // based on our experienment, this trick has few effect than randomly choosen
 		int l = 1;
 		if(ite + 1 <= ls.m)
 			l = ite + 1;
@@ -1045,6 +1053,11 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 				accu += possibilities[l++]; 
 			}
 		}
+		
+        // The trick to choose l (method 2)
+        // randomly choosen 
+		l = rand() % ls.m + 1; 
+        
 		int t = (ls.N - l + 1 + ls.m - 1) / ls.m;
 
 		double extra_start_time = CycleTimer::currentSeconds();
@@ -1083,6 +1096,7 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 		start_time = CycleTimer::currentSeconds();
 		compute_H(HT_p, BM_A_hat.data(), BM_A_hat.size(), ls.N, ls.d, l, rp);
 		Trans(HT_p, Hp, ls.m - 1, ls.N);
+
 		end_time = CycleTimer::currentSeconds();
 		phase1_time += (end_time - start_time);
 
@@ -1109,6 +1123,7 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 		YT_p = yT_p;
 		e2_p = up;
 		compute_e1(Hp, rp, e1_p, ls.N, ls.m);
+
 		Trans(Qp, QT_p, ls.m - 1, t);
 		Eigen::VectorXd e1 	= Eigen::Map<Eigen::VectorXd>(e1_p, ls.m - 1);
 
@@ -1152,6 +1167,7 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 		ADD(alpha_p, rbM_I_e2_p, alpha_p, t);
 		ADD(alpha_p, rbM_I_Y_C_I_Q_rbM_I_e2_p, alpha_p, t);
 
+
 		// Restore D
 		RestoreD(s.data(), alpha_p, D_vec_p, ls.N, ls.d, l, ls.m, t);
 
@@ -1160,20 +1176,18 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 		
 		// step 5. statistic
 		start_time = CycleTimer::currentSeconds();
-
 		RowTrans(D_vec_p, rp, D_r_p, ls.N, 1);
-
 		BM_V_MULT(BM_A_hat.data(), BM_A_hat.size(), D_r_p, BM_A_hat_D_r_p, ls.N, ls.d);
-
 		memcpy(prev_r_p, rp, ls.N * sizeof(double));
 		SUB(rp, BM_A_hat_D_r_p, rp, ls.N);
 
 		// 更新 de_amplitude
-		de_amplitudes[l - 1] = dot(prev_r_p, prev_r_p, ls.N) / dot(rp, rp, ls.N);
+        double dot_r = dot(rp, rp, ls.N);
+		de_amplitudes[l - 1] = dot(prev_r_p, prev_r_p, ls.N) / dot_r;
 
 		end_time = CycleTimer::currentSeconds();
 		phase5_time += (end_time - start_time);
-		std::cout << ite + 1 << "\t" << dot(rp, rp, ls.N) << endl;
+		std::cout << ite + 1 << "\t" << dot_r << endl;
 
 		// Free
 		free(up);
@@ -1189,6 +1203,9 @@ void IterativeSolver::PARALLEL_MDMRB_WITHOUT_EIGEN(){
 		free(rbM_I_Y_C_I_e1_p);
 		free(Y_C_I_Q_rbM_I_e2_p);
 		free(alpha_p);
+
+        if(dot_r <= ls.res_THOLD)
+			break;
 	}	
 
 	free(rp);
@@ -1379,8 +1396,6 @@ void IterativeSolver::PARALLEL_CG(){
 
 	double start_ite_time = CycleTimer::currentSeconds();
 	for(int i = 0; i < ls.max_step; i++){
-		if(r.dot(r) <= ls.res_THOLD)
-			break;
 		memcpy(prev_r_p, rp, ls.N * sizeof(double));
 		BM_V_MULT(ls.BM_A.data(), ls.BM_A.size(), dp, tmp, ls.N, ls.d);
 		double alpha = dot(rp, rp, ls.N) / dot(dp, tmp, ls.N);
@@ -1393,6 +1408,8 @@ void IterativeSolver::PARALLEL_CG(){
 		ADD(rp, tmp, dp, ls.N);
 
 		cout << i+1 << "\t" << dot(rp, rp, ls.N) << endl;
+        if(dot(rp, rp, ls.N) <= ls.res_THOLD)
+            break;
 	}
 
 	free(rp);

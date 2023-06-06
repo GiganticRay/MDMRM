@@ -821,7 +821,7 @@ void compute_e1(double *H, double *r, double *e1, int N, int m){
 		cudaMemcpy(&e1[idx - 1], dev_e1_i, sizeof(double), cudaMemcpyKind::cudaMemcpyDeviceToHost);
 	}
 
-	Eigen::VectorXd e1_vec = Eigen::Map<VectorXd>(e1, m-1);
+	// Eigen::VectorXd e1_vec = Eigen::Map<VectorXd>(e1, m-1);
 
 	// STEP 4: Free device memory
 	cudaFree(dev_H_i);
